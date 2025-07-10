@@ -1,9 +1,9 @@
 [project]
 name = "agent"
 version = "0.0.1"
-description = "Starter template for making a new agent LangGraph."
+description = "BI agent with LangGraph."
 authors = [
-    { name = "William Fu-Hinthorn", email = "13333726+hinthornw@users.noreply.github.com" },
+    { name = "Mohammadhosein Panahi", email = "hosein.panahi98@gmail.com" },
 ]
 readme = "README.md"
 license = { text = "MIT" }
