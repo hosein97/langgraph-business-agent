@@ -1,7 +1,5 @@
-from typing import Any, Dict, List, TypedDict
-
-from dataclasses import dataclass
-from dataclasses import dataclass
+from typing import TypedDict
+from pydantic import BaseModel
 
 
 class Configuration(TypedDict):
@@ -9,8 +7,27 @@ class Configuration(TypedDict):
     my_configurable_param: str
 
 
-@dataclass
-class State:
-    """Input and intermediate state passed between nodes."""
-    input_data: Dict[str, Any]
-    result: Dict[str, Any] = None
+class DailyMetrics(BaseModel):
+    revenue: float
+    cost: float
+    number_of_customers: int
+
+
+class BusinessInput(BaseModel):
+    today: DailyMetrics
+    yesterday: DailyMetrics
+
+
+class AnalysisResult(BaseModel):
+    profit: float | None = None
+    revenue_change_percent: float | None = None
+    cost_change_percent: float | None = None
+    cac_change_percent: float | None = None
+    alerts: list[str] | None = None
+    recommendations: list[str] | None = None
+
+
+class State(TypedDict):
+    raw_input_data: dict[str, any]
+    structured_input: BusinessInput | None = None
+    result: AnalysisResult | None = None
