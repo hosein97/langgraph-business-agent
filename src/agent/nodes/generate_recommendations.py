@@ -1,6 +1,6 @@
 from agent.schema import State, AnalysisResult
 
-async def generate_recommendations(state: State) -> dict:
+async def generate_recommendations(state: State) -> State:
     result: AnalysisResult = state["result"]
     alerts = []
     recommendations = []

@@ -1,6 +1,6 @@
 from agent.schema import State, AnalysisResult
 
-async def analyze_data(state: State) -> dict:
+async def analyze_data(state: State) -> State:
     input_data = state["structured_input"]
     today = input_data.today
     yesterday = input_data.yesterday
